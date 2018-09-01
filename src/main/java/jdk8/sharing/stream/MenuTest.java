@@ -2,6 +2,8 @@ package jdk8.sharing.stream;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+
 import static java.util.stream.Collectors.toList;
 
 public class MenuTest {
@@ -16,8 +18,9 @@ public class MenuTest {
 		MenuTest menuTest = new MenuTest();
 		// menuTest.testStream2();
 		// menuTest.testDishName();
-		menuTest.testVegetarian2();
-		menuTest.testNameLength();
+		// menuTest.testVegetarian2();
+		// menuTest.testNameLength();
+		menuTest.testCount();
 	}
 
 	public void testStream() {
@@ -48,16 +51,23 @@ public class MenuTest {
 		List<Dish> resultList = menu.stream().filter(Dish::isVegetarian).collect(toList());
 		System.out.println(resultList);
 	}
-	
+
 	public void testVegetarian2() {
-		List<Dish> resultList = menu.stream().filter(Dish::isVegetarian)
-				.limit(2).collect(toList());
+		List<Dish> resultList = menu.stream().filter(Dish::isVegetarian).limit(2).collect(toList());
 		System.out.println(resultList);
 	}
-	
+
 	public void testNameLength() {
 		List<Integer> nameLengths = menu.stream().map(Dish::getName).map(String::length).collect(toList());
 		System.out.println(nameLengths);
+	}
+
+	/**
+	 * 测验5.3:归约 怎样用map和reduce方法数一数流中有多少个菜呢?
+	 */
+	public void testCount() {
+		Optional<Integer> result = menu.stream().map(d -> 1).reduce(Integer::sum);
+		System.out.println(result.get());
 	}
 
 }
