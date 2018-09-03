@@ -39,13 +39,19 @@ public class CollectorsAction {
 			.ifPresent(System.out::println);
 	}
 	
+	public void testMapping() {
+		Optional.ofNullable(menu.stream().collect(Collectors.groupingBy(Dish::getType, 
+				Collectors.mapping(Dish::getName, Collectors.toList())))).ifPresent(System.out::println);;
+	}
+	
 	
 	public static void main(String[] args) {
 		CollectorsAction collectorsAction = new CollectorsAction();
 //		collectorsAction.testCollectingAndThen();
 //		collectorsAction.testGroupingByConcurrent();
 //		collectorsAction.testJoining();
-		collectorsAction.testJoining2();
+//		collectorsAction.testJoining2();
+		collectorsAction.testMapping();
 	}
 
 }
