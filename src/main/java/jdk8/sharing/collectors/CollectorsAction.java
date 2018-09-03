@@ -34,12 +34,18 @@ public class CollectorsAction {
 			.ifPresent(System.out::println);
 	}
 	
+	public void testJoining2() {
+		Optional.ofNullable(menu.stream().map(Dish::getName).collect(Collectors.joining(",", "st_", "_end")))
+			.ifPresent(System.out::println);
+	}
+	
 	
 	public static void main(String[] args) {
 		CollectorsAction collectorsAction = new CollectorsAction();
 //		collectorsAction.testCollectingAndThen();
 //		collectorsAction.testGroupingByConcurrent();
-		collectorsAction.testJoining();
+//		collectorsAction.testJoining();
+		collectorsAction.testJoining2();
 	}
 
 }
