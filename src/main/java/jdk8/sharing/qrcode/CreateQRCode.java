@@ -3,7 +3,6 @@ package jdk8.sharing.qrcode;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.HashMap;
-import java.util.Map;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
