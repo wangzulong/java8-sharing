@@ -18,7 +18,7 @@ public class CreateQRCode {
 		int width = 300; // 图片宽度
 		int height = 300; // 图片高度
 		String format = "png"; // 图片格式
-		String content = "http://blog.csdn.net/wyf2017?ref=toolbar";// 二维码内容
+		String content = "https://github.com/zhufeng8407/java8-sharing";// 二维码内容
 
 		// 定义二维码的参数
 		HashMap<EncodeHintType, Object> hints = new HashMap<>();
@@ -34,7 +34,7 @@ public class CreateQRCode {
 		try {
 			BitMatrix bitMatrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE, width, height, hints);
 			// 这里路径后面的img.png不可省略，前面是自己选取生成的图片地址
-			Path file = new File("/Users/zhufeng/Downloads/study/img.png").toPath();
+			Path file = new File("/Users/zhufeng/Downloads/study/zhufeng_github.png").toPath();
 			MatrixToImageWriter.writeToPath(bitMatrix, format, file);
 //			MatrixToImageWriter.writeToStream(bitMatrix, format, System.out);
 
